@@ -1,6 +1,7 @@
 package com.example.administrator.zhbj;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -16,12 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuideActivity extends Activity {
-    ViewPager flashViewPager;
-    int[] guidePic;
-    View v;
-    List<View> l;
-    LinearLayout pointsContainer;
-    ImageView point;
+    private ViewPager flashViewPager;
+    private int[] guidePic;
+    private View v;
+    private List<View> l;
+    private LinearLayout pointsContainer;
+    private ImageView point;
+    private Button startBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +37,14 @@ public class GuideActivity extends Activity {
         flashViewPager=(ViewPager)findViewById(R.id.viewPager);
         guidePic=new int[]{R.drawable.guide_1,R.drawable.guide_2,R.drawable.guide_3};
         pointsContainer=(LinearLayout)findViewById(R.id.points);
-
-
+        startBtn=(Button)findViewById(R.id.start_button);
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(GuideActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void initView(){
         l=new ArrayList<>();
@@ -51,6 +60,24 @@ public class GuideActivity extends Activity {
             pointsContainer.addView(point,llp);
         }
         flashViewPager.setAdapter(new GuideAdapter());
+        flashViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if(position==l.size()-1){
+                    startBtn.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
     class GuideAdapter extends PagerAdapter{
 

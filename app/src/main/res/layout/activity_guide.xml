@@ -24,8 +24,10 @@
         android:id="@+id/start_button"
         android:visibility="invisible"
         android:text="开始使用"
+        android:textColor="@color/btn_text_color"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_background_color"/>
 
 
 
