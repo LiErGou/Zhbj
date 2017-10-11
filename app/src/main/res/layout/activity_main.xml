@@ -7,6 +7,6 @@
     tools:context="com.example.administrator.zhbj.MainActivity">
 
     <TextView android:text="MainActivity" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" android:id="@+id/mf_fragment"/>
 
 </RelativeLayout>
