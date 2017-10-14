@@ -51,23 +51,28 @@ public class MainFragment extends BaseFragment{
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                MainActivity m = (MainActivity) mActivity;
                 switch (i) {
                     case R.id.home:
                         viewPager.setCurrentItem(0, false);
-                        MainActivity m = (MainActivity) mActivity;
+
                         m.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
                         break;
                     case R.id.news_center:
                         viewPager.setCurrentItem(1, false);
+                        m.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
                         break;
                     case R.id.smart:
                         viewPager.setCurrentItem(2, false);
+                        m.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
                         break;
                     case R.id.govaffair:
                         viewPager.setCurrentItem(3, false);
+                        m.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
                         break;
                     case R.id.setting:
                         viewPager.setCurrentItem(4, false);
+                        m.getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
                         break;
                 }
             }

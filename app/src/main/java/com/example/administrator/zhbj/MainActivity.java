@@ -37,9 +37,23 @@ public class MainActivity extends SlidingFragmentActivity {
     private void initFragment(){
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.left_layout,new LeftFragment(),LEFT_FRAGMENT);
-        fragmentTransaction.replace(R.id.mf_fragment,new MainFragment(),MAIN_FRAGMENT);
+        fragmentTransaction.replace(R.id.left_layout, new LeftFragment(), LEFT_FRAGMENT);
+        fragmentTransaction.replace(R.id.mf_fragment, new MainFragment(), MAIN_FRAGMENT);
 
         fragmentTransaction.commit();
+    }
+    public LeftFragment getLeftMenuFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        LeftFragment fragment = (LeftFragment) fm
+                .findFragmentByTag(LEFT_FRAGMENT);// 根据标记找到对应的fragment
+        return fragment;
+    }
+
+    // 获取主页fragment对象
+    public MainFragment getContentFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        MainFragment fragment = (MainFragment) fm
+                .findFragmentByTag(MAIN_FRAGMENT);// 根据标记找到对应的fragment
+        return fragment;
     }
 }

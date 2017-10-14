@@ -43,6 +43,7 @@ public class GuideActivity extends Activity {
             public void onClick(View view) {
                 Intent intent=new Intent(GuideActivity.this,MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

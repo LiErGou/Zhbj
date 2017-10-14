@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="50dp"
     android:layout_height="match_parent"
-    android:background="#f00"
-    android:id="@+id/lf_fragment">
+    android:background="#000"
+    android:id="@+id/lf_fragment"
+    android:gravity="center">
+
+    <ListView
+        android:layout_gravity="center"
+        android:id="@+id/lf_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
