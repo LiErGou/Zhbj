@@ -95,6 +95,9 @@ public class MainFragment extends BaseFragment{
         });
         pagers.get(0).initData();
     }
+    public NewsCenterPager getNewsCenterpager(){
+        return (NewsCenterPager)pagers.get(1);
+    }
 
     private class MyPagerAdapter extends PagerAdapter{
 
